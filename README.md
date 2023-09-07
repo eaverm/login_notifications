@@ -4,13 +4,7 @@ Adds an option to email staff and clients upon their login
 
 ## Install the Plugin
 
-1. You can install the plugin via composer:
-
-    ```
-    composer require parent_repository/login_notifications
-    ```
-
-2. OR upload the source code to a /plugins/login_notifications/ directory within
+Upload the source code to a /plugins/login_notifications/ directory within
 your Blesta installation path.
 
     For example:
