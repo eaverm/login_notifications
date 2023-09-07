@@ -26,3 +26,5 @@ your Blesta installation path.
 
 5. You're done!
 
+![image](https://github.com/eaverm/login_notifications/assets/2759324/7577a819-4a33-4ff8-b871-ae5404dc4466)
+![image](https://github.com/eaverm/login_notifications/assets/2759324/dde83d1b-65a0-41d5-b126-2bfcf398995a)
