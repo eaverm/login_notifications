@@ -5,13 +5,13 @@ if ($this->Html->ifSet($message)) {
 
 $this->Widget->clear();
 $this->Widget->setStyleSheet($this->view_dir . "css/styles.css");
-$this->Widget->create("Login Notifications Plugin");
+$this->Widget->create($this->_('LoginNotificationsPlugin.name', true));
 $this->Form->create();
 ?>
 
 <div class="inner">
   <div class="title_row first">
-      <h3>General Settings</h3>
+      <h1><?php echo $this->_('LoginNotificationsPlugin.title.general', true)?></h1>
   </div>
     <div class="pad row">
         <div class="col-sm-12">
@@ -19,13 +19,13 @@ $this->Form->create();
                 <li>
                     <?php
                     $this->Form->fieldCheckbox('enable_admin_login_emails', 'true', $this->Html->ifSet($settings->enable_admin_login_emails) == 'true', ['id' => 'enable_admin_login_emails']);
-                    $this->Form->label("Enable Admin Login Emails", 'enable_admin_login_emails', ['class' => 'inline']);
+                    $this->Form->label($this->_('LoginNotificationsPlugin.enable_admin_login_emails', true), 'enable_admin_login_emails', ['class' => 'inline']);
                     ?>
                 </li>
                 <li>
                     <?php
                     $this->Form->fieldCheckbox('enable_client_login_emails', 'true', $this->Html->ifSet($settings->enable_client_login_emails) == 'true', ['id' => 'enable_client_login_emails']);
-                    $this->Form->label("Enable Client Login Emails", 'enable_client_login_emails', ['class' => 'inline']);
+                    $this->Form->label($this->_('LoginNotificationsPlugin.enable_client_login_emails', true), 'enable_client_login_emails', ['class' => 'inline']);
                     ?>
                 </li>
             </ul>
@@ -33,7 +33,7 @@ $this->Form->create();
     </div>
 
     <div class="title_row first">
-        <h3>Additional Settings</h3>
+        <h1><?php echo $this->_('LoginNotificationsPlugin.title.additional_settings', true); ?></h1>
     </div>
     <div class="pad row">
         <div class="col-sm-12">
@@ -41,7 +41,7 @@ $this->Form->create();
                 <li>
                     <?php
                     $this->Form->fieldCheckbox('send_on_new_ip', 'true', $this->Html->ifSet($settings->send_on_new_ip) == 'true', ['id' => 'send_on_new_ip']);
-                    $this->Form->label("Send Email ONLY on IP change", 'send_on_new_ip', ['class' => 'inline']);
+                    $this->Form->label($this->_('LoginNotificationsPlugin.send_on_new_ip', true), 'send_on_new_ip', ['class' => 'inline']);
                     ?>
                 </li>
             </ul>
@@ -59,9 +59,3 @@ $this->Form->create();
 $this->Form->end();
 $this->Widget->end();
 ?>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('a.manage[rel]').blestaModalConfirm({base_url: '<?php echo $this->Html->safe($this->base_uri); ?>', close: '<?php $this->_("AppController.modal.text_close"); ?>', submit: true});
-    });
-</script>
