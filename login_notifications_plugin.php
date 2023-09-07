@@ -219,7 +219,7 @@ class LoginNotificationsPlugin extends Plugin
         }
 
         // Check if it's a staff login or a client login
-        $staff_login = $this->Staff->get($params['user_id']);
+        $staff_login = $this->Staff->getByUserId($params['user_id']);
 
         if ($staff_login === false) {
             // It's a client login
@@ -259,8 +259,20 @@ class LoginNotificationsPlugin extends Plugin
 
              // Check if $geoData is not null and contains the expected elements
              if (!empty($geoData)) {
-                 // Add the "location" key to the tags array
-                 $tags['location'] = $geoData['city'] . ', ' . $geoData['region'] . ' - ' . $geoData['country_name'];
+                 // Initialize the location string with the country name
+                 $location = $geoData['country_name'];
+
+                 // Check if city and region are not empty, and append them to the location string if they exist
+                 if (!empty($geoData['city']) && !empty($geoData['region'])) {
+                     $location = $geoData['city'] . ', ' . $geoData['region'] . ' - ' . $location;
+                 } elseif (!empty($geoData['city'])) {
+                     $location = $geoData['city'] . ' - ' . $location;
+                 } elseif (!empty($geoData['region'])) {
+                     $location = $geoData['region'] . ' - ' . $location;
+                 }
+
+                 // Assign the location string to the tags array
+                 $tags['location'] = $location;
              }
 
              // Send login notification email
