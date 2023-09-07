@@ -24,5 +24,7 @@ your Blesta installation path.
 
 4. Find the Login Notifications plugin and click the "Install" button to install it
 
-5. You're done!
+5. Manage Plugin to set settings and save
+   
+6. You're done!
 
